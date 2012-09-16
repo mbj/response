@@ -15,7 +15,7 @@ There is no gem release and the code is under development and unusable.
 Examples
 --------
 
-MISSING. See specs.
+MISSING. See specs and in code docs!
 
 Credits
 -------
