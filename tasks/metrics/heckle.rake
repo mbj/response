@@ -34,9 +34,9 @@ begin
       raise "ruby2ruby version #{Ruby2Ruby::VERSION} may not work properly, 1.2.2 *only* is recommended for use with heckle"
     end
 
-    require 'descendants_tracker'
+    require 'response'
 
-    root_module_regexp = Regexp.union('DescendantsTracker')
+    root_module_regexp = Regexp.union('Response')
 
     spec_dir = Pathname('spec/unit')
 

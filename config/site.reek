@@ -11,7 +11,7 @@ LargeClass:
   max_methods: 10  
   exclude: []
   enabled: true
-  max_instance_variables: 2
+  max_instance_variables: 3
 UncommunicativeMethodName:
   accept: []
   exclude: []
@@ -21,7 +21,7 @@ UncommunicativeMethodName:
   - !ruby/regexp /[0-9]$/
   - !ruby/regexp /[A-Z]/
 LongParameterList:
-  max_params: 2  # TODO: decrease max_params to 2
+  max_params: 3  
   exclude: []
   enabled: true
   overrides: {}
