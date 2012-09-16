@@ -148,9 +148,7 @@ class Response
   #   returns new response with merged header
   #
   def merge_headers(headers)
-    original = self.headers
-    original = {} if original == Undefined
-    self.class.new(status, original.merge(headers), body)
+    self.class.new(status, self.headers.merge(headers), body)
   end
 
   # Return rack compatible array after asserting response is valid
@@ -244,7 +242,7 @@ private
   #
   # @api private
   #
-  def initialize(status=Undefined, headers=Undefined, body=Undefined)
+  def initialize(status=Undefined, headers={}, body=Undefined)
     @status, @headers, @body = status, headers, body 
   end
 end
