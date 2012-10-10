@@ -249,3 +249,4 @@ end
 
 require 'response/redirect'
 require 'response/html'
+require 'response/xml'
