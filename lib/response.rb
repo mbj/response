@@ -1,11 +1,11 @@
 #encoding: utf-8
 require 'ice_nine'
-require 'immutable'
+require 'adamantium'
 require 'equalizer'
 
 # Library to build rack compatible responses in a functional style
 class Response
-  include Immutable, Equalizer.new(:status, :headers, :body)
+  include Adamantium, Equalizer.new(:status, :headers, :body)
 
   # Error raised when finalizing responses with undefined components 
   class InvalidResponseError < RuntimeError; end
