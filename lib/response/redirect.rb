@@ -1,7 +1,7 @@
 class Response
   # Abstract redirect response
   class Redirect < self
-    include AbstractClass
+    include AbstractType
 
     # Build redirect response
     #

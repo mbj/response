@@ -2,10 +2,6 @@ source 'https://rubygems.org'
 
 gemspec
 
-gem 'adamantium',     :git => 'https://github.com/mbj/adamantium.git', :branch => :'configurable-freezers'
-gem 'equalizer',      :git => 'https://github.com/dkubb/equalizer.git'
-gem 'abstract_class', :git => 'https://github.com/dkubb/abstract_class.git'
-
 group :development do
   gem 'rake',    '~> 0.9.2'
   gem 'yard',    '~> 0.8.1'
