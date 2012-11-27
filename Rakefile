@@ -1,7 +1,5 @@
-# encoding: utf-8
-
 require 'rake'
 
-FileList['tasks/**/*.rake'].each { |task| import task }
+require 'devtools'
 
-task :default => :spec
+Devtools.init

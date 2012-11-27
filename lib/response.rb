@@ -1,6 +1,7 @@
 #encoding: utf-8
 require 'ice_nine'
 require 'adamantium'
+require 'abstract_type'
 require 'equalizer'
 
 # Library to build rack compatible responses in a functional style

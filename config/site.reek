@@ -8,7 +8,7 @@ UncommunicativeParameterName:
   - !ruby/regexp /[0-9]$/
   - !ruby/regexp /[A-Z]/
 LargeClass:
-  max_methods: 10  
+  max_methods: 10
   exclude: []
   enabled: true
   max_instance_variables: 3
@@ -21,8 +21,9 @@ UncommunicativeMethodName:
   - !ruby/regexp /[0-9]$/
   - !ruby/regexp /[A-Z]/
 LongParameterList:
-  max_params: 3  
-  exclude: []
+  max_params: 2 
+  exclude: 
+  - Response#initialize # 3 params
   enabled: true
   overrides: {}
 FeatureEnvy:
@@ -48,7 +49,7 @@ NestedIterators:
   ignore_iterators: []
   exclude: []
   enabled: true
-  max_allowed_nesting: 2
+  max_allowed_nesting: 1
 LongMethod:
   max_statements: 7  # TODO: decrease max_statements to 5 or less
   exclude: []
