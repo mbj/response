@@ -9,7 +9,9 @@ class Response
   include Adamantium::Flat, Equalizer.new(:status, :headers, :body)
 
   # Error raised when finalizing responses with undefined components 
-  class InvalidResponseError < RuntimeError; end
+  class InvalidError < RuntimeError; end
+
+  TEXT_PLAIN = 'text/plain; charset=UTF-8'
 
   # Undefined response component
   Undefined = Class.new.freeze
@@ -157,32 +159,30 @@ class Response
   # @return [Array]
   #   rack compatible array
   #
-  # @raise InvalidResponseError
-  #   raises InvalidResponseError when request containts undefined components
+  # @raise InvalidError
+  #   raises InvalidError when request containts undefined components
   #
   # @api private
   #
-  def to_rack
+  def to_rack_response
     assert_valid
     rack_array
   end
 
-  # Raise error when request containts undefined components
+  # Test if object is a valid response
   #
-  # @raise InvalidResponseError
-  #   raises InvalidResponseError when request containts undefined components
+  # @return [true]
+  #   if all required fields are present
   #
-  # @return [self]
+  # @return [false]
+  #   otherwise
   #
   # @api private
   #
-  def assert_valid
-    if rack_array.any? { |item| item.equal?(Undefined) }
-      raise InvalidResponseError, "Not a valid response: #{self.inspect}"
-    end
-    
-    self
+  def valid?
+    !rack_array.any? { |item| item.equal?(Undefined) }
   end
+  memoize :valid?
 
   # Return rack compatible array
   #
@@ -223,7 +223,7 @@ class Response
   def self.build(*args)
     response = new(*args)
     response = yield response if block_given?
-    response.to_rack
+    response
   end
 
 private
@@ -245,6 +245,21 @@ private
   #
   def initialize(status=Undefined, headers={}, body=Undefined)
     @status, @headers, @body = status, headers, body 
+  end
+
+  # Raise error when request containts undefined components
+  #
+  # @raise InvalidError
+  #   raises InvalidError when request containts undefined components
+  #
+  # @return [undefined]
+  #
+  # @api private
+  #
+  def assert_valid
+    unless valid?
+      raise InvalidError, "Not a valid response: #{self.inspect}"
+    end
   end
 end
 

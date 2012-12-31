@@ -1,16 +1,18 @@
 require 'spec_helper'
 
 describe Response, '#merge_headers' do
-  subject { object.merge_headers(headers) }
+  subject { object.merge_headers(update_headers) }
 
-  let(:object)  { described_class.new(*arguments) }
-  let(:status)  { mock('Status')                  }
-  let(:headers) { { 'Baz' => 'Zot' }              }
+  let(:object)           { described_class.new(status, original_headers, body)  }
+  let(:status)           { mock('Status')       }
+  let(:update_headers)   { { 'Baz' => 'Zot' }   }
+  let(:original_headers) { { 'Foo' => 'Bar' }   }
 
-  let(:arguments) { [status, original_headers] }
+  let(:status)  { mock('Status')    }
+  let(:body)    { mock('Body')      }
 
-  let(:original_headers) { { 'Foo' => 'Bar' } }
-
+  its(:status)  { should be(status) }
+  its(:body)    { should be(body)   }
   its(:headers) { should eql('Foo' => 'Bar', 'Baz' => 'Zot') }
 
   it_should_behave_like 'a functional command method'
