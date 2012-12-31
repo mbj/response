@@ -162,7 +162,7 @@ class Response
   #
   # @api private
   #
-  def finish
+  def to_rack
     assert_valid
     rack_array
   end
@@ -223,7 +223,7 @@ class Response
   def self.build(*args)
     response = new(*args)
     response = yield response if block_given?
-    response.finish
+    response.to_rack
   end
 
 private
