@@ -1,10 +1,8 @@
 # -*- encoding: utf-8 -*-
 
-require File.expand_path('../lib/response/version', __FILE__)
-
 Gem::Specification.new do |gem|
   gem.name        = 'response'
-  gem.version     = Response::VERSION.dup
+  gem.version     = '0.0.1'
   gem.authors     = [ 'Markus Schirp' ]
   gem.email       = [ 'mbj@seonic.net' ]
   gem.description = 'Build rack responses with functional style'
