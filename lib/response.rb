@@ -201,6 +201,26 @@ class Response
   end
   memoize :rack_array
 
+  # Return contents of content type header
+  #
+  # @return [String]
+  #
+  # @api private
+  #
+  def content_type
+    headers['Content-Type']
+  end
+
+  # Return contents of cache control header
+  #
+  # @return [String]
+  #
+  # @api private
+  #
+  def cache_control
+    headers['Cache-Control']
+  end
+
   # Build response with a dsl like interface
   #
   # @example
