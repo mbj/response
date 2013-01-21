@@ -29,8 +29,8 @@ class Response
     #
     # @api public
     #
-    def self.build(body, &block)
-      super(200, HEADER, body, &block)
+    def self.build(body)
+      super(200, HEADER, body)
     end
   end
 end
