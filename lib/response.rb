@@ -1,4 +1,5 @@
 #encoding: utf-8
+require 'time'
 require 'ice_nine'
 require 'adamantium'
 require 'abstract_type'
@@ -210,6 +211,22 @@ class Response
   def content_type
     headers['Content-Type']
   end
+
+  # Return last modified 
+  #
+  # @return [Time]
+  #   if last modified header is present
+  #
+  # @return [nil]
+  #   otherwise
+  #
+  # @api private
+  #
+  def last_modified
+    value = headers.fetch('Last-Modified') { return }
+    Time.httpdate(value)
+  end
+  memoize :last_modified
 
   # Return contents of cache control header
   #
