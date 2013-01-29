@@ -301,5 +301,6 @@ private
 end
 
 require 'response/redirect'
+require 'response/code'
 require 'response/html'
 require 'response/xml'
