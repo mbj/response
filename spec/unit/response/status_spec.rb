@@ -5,7 +5,7 @@ describe Response, '#status' do
   subject { object.status }
 
   context 'when unset' do
-    let(:object) { described_class.new }
+    let(:object) { described_class.build }
 
     it { should be(Response::Undefined) }
   end
@@ -13,7 +13,7 @@ describe Response, '#status' do
   context 'when set' do
     let(:status) { mock('Status') }
 
-    let(:object) { described_class.new.with_status(status) }
+    let(:object) { described_class.build.with_status(status) }
 
     it { should be(status) }
 

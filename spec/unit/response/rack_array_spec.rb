@@ -7,7 +7,7 @@ describe Response, '#rack_array' do
   let(:headers) { mock('Headers') }
   let(:body)    { mock('Body')    }
 
-  let(:object) { described_class.new(status, headers, body) }
+  let(:object) { described_class.build(status, headers, body) }
 
   it { should eql([status, headers, body]) }
 

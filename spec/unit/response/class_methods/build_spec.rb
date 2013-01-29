@@ -9,7 +9,7 @@ describe Response, '.build' do
     let(:block) { nil }
 
     it 'should return response' do
-      should eql(Response.new)
+      should eql(Response.build)
     end
   end
 
@@ -24,7 +24,7 @@ describe Response, '.build' do
 
     it 'should call block with response' do
       subject
-      yields.should eql([Response.new])
+      yields.should eql([Response.build])
     end
   end
 end

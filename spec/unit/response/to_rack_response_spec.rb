@@ -9,7 +9,7 @@ describe Response, '#to_rack_response' do
   let(:body)    { mock('Body') }
 
   context 'with valid response' do
-    let(:object) { Response.new(status, headers, body) }
+    let(:object) { Response.build(status, headers, body) }
 
     it { should eql([status, headers, body]) }
 
@@ -17,7 +17,7 @@ describe Response, '#to_rack_response' do
   end
 
   context 'with invalid response' do
-    let(:object) { Response.new }
+    let(:object) { Response.build }
 
     it 'should raise error' do
       expect { subject }.to raise_error(Response::InvalidError, "Not a valid response: #{object.inspect}")

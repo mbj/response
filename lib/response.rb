@@ -2,78 +2,24 @@
 require 'time'
 require 'ice_nine'
 require 'adamantium'
+require 'composition'
 require 'abstract_type'
 require 'equalizer'
 
 # Library to build rack compatible responses in a functional style
 class Response
-  include Adamantium::Flat, Equalizer.new(:status, :headers, :body)
+  include Adamantium::Flat, Composition.new(:status, :headers, :body)
 
   # Error raised when finalizing responses with undefined components 
   class InvalidError < RuntimeError; end
 
-  TEXT_PLAIN = 'text/plain; charset=UTF-8'
+  TEXT_PLAIN = 'text/plain; charset=UTF-8'.freeze
 
   # Undefined response component
+  #
+  # A class to get nice #inspect behavior ootb
+  #
   Undefined = Class.new.freeze
-
-  # Return status
-  #
-  # @return [Fixnum]
-  #   when status is set
-  #
-  # @return [Undefined]
-  #   otherwise
-  #
-  # @example
-  #
-  #   response = Response.new
-  #   response.status  # Response::Undefined
-  #   response.with_status(200).status # 200
-  #
-  # @api public
-  #
-  attr_reader :status
-
-  # Return headers
-  #
-  # @return [Hash]
-  #   when headers are set
-  #
-  # @return [Undefined]
-  #   otherwise
-  #
-  # @example
-  #
-  #   response = Response.new
-  #   response.headers # Response::Undefined
-  #
-  #   response = response.with_headers({'Foo' => 'Bar'})
-  #   response.headers # { 'Foo' => 'Bar' }
-  #
-  # @api public
-  #
-  attr_reader :headers
-
-  # Return body
-  #
-  # @return [Object]
-  #   when body is set
-  #
-  # @return [Undefined]
-  #   otherwise
-  #
-  # @example
-  #
-  #   response = Response.new
-  #   response.body # Response::Undefined
-  #
-  #   response = response.with_body('Foo')
-  #   response.headers # 'Foo'
-  #
-  # @api public
-  #
-  attr_reader :body
 
   # Return response with new status
   #
@@ -257,31 +203,10 @@ class Response
   #
   # @api public
   #
-  def self.build(*args)
-    response = new(*args)
+  def self.build(status = Undefined, headers = {}, body = Undefined)
+    response = new(status, headers, body)
     response = yield response if block_given?
     response
-  end
-
-private
-
-  # Initialize obejct
-  #
-  # @param [Fixnum] status
-  #   http status component
-  #   
-  # @param [Hash] headers
-  #   http header component
-  #
-  # @param [Object] body
-  #   http body component
-  #
-  # @return [undefined]
-  #
-  # @api private
-  #
-  def initialize(status=Undefined, headers={}, body=Undefined)
-    @status, @headers, @body = status, headers, body 
   end
 
   # Raise error when request containts undefined components

@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Response, '#last_modified' do
   subject { object.last_modified }
 
-  let(:object) { Response.new.with_headers(header) }
+  let(:object) { Response.build.with_headers(header) }
 
   let(:time) { Time.httpdate(Time.now.httpdate) }
 

@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Response, '#cache_control' do
   subject { object.cache_control }
 
-  let(:object) { Response.new.with_headers(header) }
+  let(:object) { Response.build.with_headers(header) }
 
   context 'when Cache-Control header is present' do
     let(:header) { { 'Cache-Control' => value } }

@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Response, '#merge_headers' do
   subject { object.merge_headers(update_headers) }
 
-  let(:object)           { described_class.new(status, original_headers, body)  }
+  let(:object)           { described_class.build(status, original_headers, body)  }
   let(:status)           { mock('Status')       }
   let(:update_headers)   { { 'Baz' => 'Zot' }   }
   let(:original_headers) { { 'Foo' => 'Bar' }   }

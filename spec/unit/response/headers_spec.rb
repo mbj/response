@@ -5,7 +5,7 @@ describe Response, '#headers' do
   subject { object.headers }
 
   context 'when unset' do
-    let(:object) { described_class.new }
+    let(:object) { described_class.build }
 
     it { should eql({}) }
   end
@@ -13,7 +13,7 @@ describe Response, '#headers' do
   context 'when set' do
     let(:headers) { mock('Headers') }
 
-    let(:object) { described_class.new.with_headers(headers) }
+    let(:object) { described_class.build.with_headers(headers) }
 
     it { should be(headers) }
 

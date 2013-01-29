@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Response, '#with_body' do
   subject { object.with_status(status).with_headers(headers).with_body(body) }
 
-  let(:object)  { described_class.new }
+  let(:object)  { described_class.build }
 
   let(:status)  { mock('Status')      }
   let(:body)    { mock('Body')        }
