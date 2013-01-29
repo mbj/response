@@ -4,7 +4,7 @@ describe Response, '#merge_headers' do
   subject { object.merge_headers(update_headers) }
 
   let(:object)           { described_class.build(status, original_headers, body)  }
-  let(:status)           { mock('Status')       }
+  let(:status)           { Response::Status::OK }
   let(:update_headers)   { { 'Baz' => 'Zot' }   }
   let(:original_headers) { { 'Foo' => 'Bar' }   }
 

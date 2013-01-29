@@ -23,7 +23,7 @@ UncommunicativeMethodName:
 LongParameterList:
   max_params: 2 
   exclude: 
-  - Response#initialize # 3 params
+  - Response#self.build # 3 params
   enabled: true
   overrides: {}
 FeatureEnvy:

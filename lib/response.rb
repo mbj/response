@@ -127,7 +127,7 @@ class Response
   # @api private
   #
   def valid?
-    !rack_array.any? { |item| item.equal?(Undefined) }
+    ![status, headers, body].any? { |item| item.equal?(Undefined) }
   end
   memoize :valid?
 
@@ -144,7 +144,7 @@ class Response
   # @api public
   #
   def rack_array
-    [status, headers, body]
+    [status.code, headers, body]
   end
   memoize :rack_array
 
@@ -209,6 +209,8 @@ class Response
     response
   end
 
+private
+
   # Raise error when request containts undefined components
   #
   # @raise InvalidError
@@ -225,7 +227,7 @@ class Response
   end
 end
 
+require 'response/status'
 require 'response/redirect'
-require 'response/code'
 require 'response/html'
 require 'response/xml'

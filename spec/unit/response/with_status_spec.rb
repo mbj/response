@@ -4,7 +4,7 @@ describe Response, '#with_status' do
   subject { object.with_headers(headers).with_body(body).with_status(status) }
 
   let(:object)  { described_class.build }
-  let(:status)  { mock('Status')        }
+  let(:status)  { Response::Status::OK  }
                                        
   let(:body)    { mock('Body')          }
   let(:headers) { mock('Headers')       }

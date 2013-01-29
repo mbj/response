@@ -5,12 +5,13 @@ describe Response, '.build' do
 
   let(:object) { described_class }
 
-  context 'without block' do
-    let(:block) { nil }
+  context 'without arguments and block' do
+    let(:block)   { nil }
 
-    it 'should return response' do
-      should eql(Response.build)
-    end
+    its(:valid?)  { should be(false)               }
+    its(:headers) { should eql({})                 }
+    its(:status)  { should be(Response::Undefined) }
+    its(:body)    { should be(Response::Undefined) }
   end
 
   context 'with block' do

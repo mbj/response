@@ -41,12 +41,12 @@ class Response
 
     # Response with default status code of 302
     class Found < self
-      STATUS = 302
+      STATUS = Status::FOUND
     end
 
     # Response with default status code of 301
     class Permanent < self
-      STATUS = 301
+      STATUS = Status::MOVED_PERMANENTLY
     end
   end
 end

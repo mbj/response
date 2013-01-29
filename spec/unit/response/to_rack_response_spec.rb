@@ -4,14 +4,14 @@ describe Response, '#to_rack_response' do
 
   subject { object.to_rack_response }
 
-  let(:status)  { mock('Status') }
+  let(:status)  { Response::Status::OK }
   let(:headers) { mock('Headers') }
   let(:body)    { mock('Body') }
 
   context 'with valid response' do
     let(:object) { Response.build(status, headers, body) }
 
-    it { should eql([status, headers, body]) }
+    it { should eql([200, headers, body]) }
 
     it_should_behave_like 'an idempotent method'
   end

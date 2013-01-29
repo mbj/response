@@ -1,2 +1,2 @@
 * Find something more pretty than the #with_ prefix for changeing components
-* Unit and mutation cover all code
+* Do not represent header with primitive hash anymore

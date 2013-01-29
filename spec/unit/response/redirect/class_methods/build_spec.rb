@@ -8,7 +8,7 @@ describe Response::Redirect::Found, '#build' do
 
   let(:location) { mock('Location', :to_s => 'THE-LOCATION') }
 
-  its(:status)  { should be(302) }
+  its(:status)  { should be(Response::Status::FOUND) }
   its(:headers) { should eql('Location' => location, 'Content-Type' => 'text/plain; charset=UTF-8') }
   its(:body)    { should eql('You are beeing redirected to: THE-LOCATION') }
 end
@@ -21,7 +21,7 @@ describe Response::Redirect::Permanent, '#build' do
 
   let(:location) { mock('Location', :to_s => 'THE-LOCATION') }
 
-  its(:status)  { should be(301) }
+  its(:status)  { should be(Response::Status::MOVED_PERMANENTLY) }
   its(:headers) { should eql('Location' => location, 'Content-Type' => 'text/plain; charset=UTF-8') }
   its(:body)    { should eql('You are beeing redirected to: THE-LOCATION') }
 end

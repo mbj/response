@@ -1,29 +1,15 @@
-module Response
+class Response
   # HTTP response status code with text
   class Status
     include Adamantium, Composition.new(:code, :text)
 
-    REGISTRY = {}
-
-    # Instantiate object
-    #
-    # @return [Code]
-    #
-    # @api private
-    #
-    def self.new(*args)
-      instance = super
-      REGISTRY[instance.code]=instance
-      instance
-    end
-
     private_class_method :new
 
-    new(200, 'OK')
-    new(404, 'Not Found')
-    new(304, 'Not Modified')
-
-    REGISTRY.freeze
+    OK                = new(200, 'OK'               )
+    NOT_FOUND         = new(404, 'Not Found'        )
+    NOT_MODIFIED      = new(304, 'Not Modified'     )
+    FOUND             = new(302, 'Found'            )
+    MOVED_PERMANENTLY = new(301, 'Moved Permanently')
 
   end
 end

@@ -4,7 +4,7 @@ describe Response, '#valid?' do
   subject { object.valid? }
 
   context 'with status and body' do
-    let(:object) { described_class.build(mock('Status'), {}, mock('Body')) }
+    let(:object) { described_class.build(Response::Status::OK, {}, mock('Body')) }
 
     it { should be(true) }
 
@@ -12,7 +12,7 @@ describe Response, '#valid?' do
   end
 
   context 'without body' do
-    let(:object) { described_class.build.with_status(mock('Status')) }
+    let(:object) { described_class.build.with_status(Response::Status::OK) }
 
     it { should be(false) }
 
