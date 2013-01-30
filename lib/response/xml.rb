@@ -21,7 +21,7 @@ class Response
     #
     #   # With overriding defaults
     #   response = Response::HTML.build("<foo><bar>Hello</bar></foo>") do |response|
-    #     response.with_status(404)
+    #     response.with_status(Response::Status::NOT_FOUND)
     #   end
     #   response.status  # => Response::Status::OK
     #   response.headers # => { 'Content-Type' => 'application/xml; charset=UTF-8' }
