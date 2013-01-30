@@ -6,6 +6,7 @@ class Response
     private_class_method :new
 
     OK                = new(200, 'OK'               )
+    CREATED           = new(201, 'Created'          )
     NOT_FOUND         = new(404, 'Not Found'        )
     NOT_MODIFIED      = new(304, 'Not Modified'     )
     FOUND             = new(302, 'Found'            )
