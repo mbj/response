@@ -3,7 +3,7 @@ response
 
 [![Build Status](https://secure.travis-ci.org/mbj/response.png?branch=master)](http://travis-ci.org/mbj/response)
 [![Dependency Status](https://gemnasium.com/mbj/response.png)](https://gemnasium.com/mbj/response)
-[![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/mbj/response)
+[![Code Climate](https://codeclimate.com/github/mbj/response.png)](https://codeclimate.com/github/mbj/response)
 
 Build HTTP responses in a functional style. Yeah it has support for rack.
 
