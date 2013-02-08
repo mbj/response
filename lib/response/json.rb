@@ -1,9 +1,9 @@
 class Response
-  # XML response
-  class XML < self
-    HEADERS = IceNine.deep_freeze('Content-Type' => 'application/xml; charset=UTF-8')
+  # JSON response
+  class JSON < self
+    HEADERS = IceNine.deep_freeze('Content-Type' => 'application/json; charset=UTF-8')
 
-    # Build xml response with defaults
+    # Build JSON response with defaults
     #
     # @param [Object] body
     #   rack compatible body
@@ -14,18 +14,18 @@ class Response
     # @example
     #   
     #   # With defaults
-    #   response = Response::XML.build("<foo><bar>Hello</bar></foo>")
+    #   response = Response::JSON.build('{"foo":"bar"}')
     #   response.status  # => Response::Status::OK
-    #   response.headers # => { 'Content-Type' => 'application/xml; charset=UTF-8' }
-    #   response.body    # => "<foo><bar>Hello</bar></foo>"
+    #   response.headers # => { 'Content-Type' => 'application/json; charset=UTF-8' }
+    #   response.body    # => "{\"foo\":\"bar\"}"
     #
     #   # With overriding defaults
     #   response = Response::HTML.build("<foo><bar>Hello</bar></foo>") do |response|
     #     response.with_status(Response::Status::NOT_FOUND)
     #   end
     #   response.status  # => Response::Status::NOT_FOUND
-    #   response.headers # => { 'Content-Type' => 'application/xml; charset=UTF-8' }
-    #   response.body    # => "<foo><bar>Hello</bar></foo>"
+    #   response.headers # => { 'Content-Type' => 'application/json; charset=UTF-8' }
+    #   response.body    # => "{\"foo\":\"bar\"}"
     #
     # @api public
     #
