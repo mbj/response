@@ -11,6 +11,8 @@ class Response
     NOT_MODIFIED      = new(304, 'Not Modified'     )
     FOUND             = new(302, 'Found'            )
     MOVED_PERMANENTLY = new(301, 'Moved Permanently')
+    NOT_AUTHORIZED    = new(401, 'Not Authorized'   )
+    FORBIDDEN         = new(403, 'Forbidden'        )
 
   end
 end
