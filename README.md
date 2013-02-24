@@ -10,7 +10,7 @@ Build HTTP responses in a functional style. Yeah it has support for rack.
 Installation
 ------------
 
-There is no gem release and the code is under development and unusable.
+Use git source `gem 'response', :git => 'https://github.com/mbj/response`
 
 Examples
 --------
@@ -20,8 +20,10 @@ MISSING. See specs and in code docs!
 Credits
 -------
 
+* Markus Schirp [mbj](https://github.com/mbj)
+
 Contributing
--------------
+------------
 
 * Fork the project.
 * Make your feature addition or bug fix.
@@ -30,3 +32,8 @@ Contributing
 * Commit, do not mess with Rakefile or version
   (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
 * Send me a pull request. Bonus points for topic branches.
+
+License
+-------
+
+See `LICENSE` file.
