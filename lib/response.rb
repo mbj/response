@@ -2,13 +2,13 @@
 require 'time'
 require 'ice_nine'
 require 'adamantium'
-require 'composition'
+require 'concord'
 require 'abstract_type'
 require 'equalizer'
 
 # Library to build rack compatible responses in a functional style
 class Response
-  include Adamantium::Flat, Composition.new(:status, :headers, :body)
+  include Adamantium::Flat, Concord.new(:status, :headers, :body)
 
   # Error raised when finalizing responses with undefined components 
   class InvalidError < RuntimeError; end

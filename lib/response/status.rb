@@ -1,7 +1,7 @@
 class Response
   # HTTP response status code with text
   class Status
-    include Adamantium, Composition.new(:code, :text)
+    include Adamantium, Concord.new(:code, :text)
 
     private_class_method :new
 
