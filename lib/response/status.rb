@@ -16,5 +16,13 @@ class Response
     FORBIDDEN             = new(403, 'Forbidden'            )
     INTERNAL_SERVER_ERROR = new(500, 'Internal Server Error')
 
-  end
-end
+    # Return status code
+    #
+    # @return [Fixnum]
+    #
+    # @api private
+    #
+    attr_reader :code
+
+  end # Status
+end # Response

@@ -21,6 +21,42 @@ class Response
   #
   Undefined = Class.new.freeze
 
+  # Return status code
+  #
+  # @return [Response::Status]
+  #   if set
+  #
+  # @return [undefined]
+  #   otherwise
+  #
+  # @api private
+  #
+  attr_reader :status
+
+  # Return headers code
+  #
+  # @return [Hash]
+  #   if set
+  #
+  # @return [undefined]
+  #   otherwise
+  #
+  # @api private
+  #
+  attr_reader :headers
+
+  # Return status code
+  #
+  # @return [#each]
+  #   if set
+  #
+  # @return [undefined]
+  #   otherwise
+  #
+  # @api private
+  #
+  attr_reader :body
+
   # Return response with new status
   #
   # @param [Fixnum] status
