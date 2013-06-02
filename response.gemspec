@@ -4,7 +4,7 @@ Gem::Specification.new do |gem|
   gem.name        = 'response'
   gem.version     = '0.0.2'
   gem.authors     = [ 'Markus Schirp' ]
-  gem.email       = [ 'mbj@seonic.net' ]
+  gem.email       = [ 'mbj@schir-dso.com' ]
   gem.description = 'Build rack responses with functional style'
   gem.summary     = gem.description
   gem.homepage    = 'https://github.com/mbj/response'
