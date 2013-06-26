@@ -2,15 +2,12 @@ language: ruby
 before_install: gem install bundler
 script: bundle exec rake ci
 rvm:
-  - 1.8.7
-  - 1.9.2
   - 1.9.3
-  #- ruby-head Disabled while ffi does not build under ruby-head
-  - rbx-18mode
+  - 2.0.0
+  - ruby-head
   - rbx-19mode
-  - jruby-18mode
   - jruby-19mode
   - jruby-head
-allowed_failures:
-  matrix:
-    - ree
+matrix:
+  allow_failures:
+    rvm: ruby-head
