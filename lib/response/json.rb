@@ -8,11 +8,10 @@ class Response
     # @param [Object] body
     #   rack compatible body
     #
-    # @return [Array]
-    #   rack compatible response array
+    # @return [Response::JSON]
     #
     # @example
-    #   
+    #
     #   # With defaults
     #   response = Response::JSON.build('{"foo":"bar"}')
     #   response.status  # => Response::Status::OK
@@ -20,9 +19,10 @@ class Response
     #   response.body    # => "{\"foo\":\"bar\"}"
     #
     #   # With overriding defaults
-    #   response = Response::HTML.build("<foo><bar>Hello</bar></foo>") do |response|
+    #   response = Response::JSON.build("<foo><bar>Hello</bar></foo>") do |response|
     #     response.with_status(Response::Status::NOT_FOUND)
     #   end
+    #
     #   response.status  # => Response::Status::NOT_FOUND
     #   response.headers # => { 'Content-Type' => 'application/json; charset=UTF-8' }
     #   response.body    # => "{\"foo\":\"bar\"}"
