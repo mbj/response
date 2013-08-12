@@ -1,4 +1,5 @@
 #encoding: utf-8
+
 require 'time'
 require 'ice_nine'
 require 'adamantium'
@@ -10,7 +11,7 @@ require 'equalizer'
 class Response
   include Adamantium::Flat, Concord.new(:status, :headers, :body)
 
-  # Error raised when finalizing responses with undefined components 
+  # Error raised when finalizing responses with undefined components
   class InvalidError < RuntimeError; end
 
   TEXT_PLAIN = 'text/plain; charset=UTF-8'.freeze
@@ -108,7 +109,7 @@ class Response
   # @example
   #
   #   response = Response.new
-  #   response = response.with_header({'Foo' => 'Bar'})
+  #   response = response.with_headers({'Foo' => 'Bar'})
   #   response.headers # => {'Foo' => 'Bar'}
   #
   # @api public
@@ -125,7 +126,7 @@ class Response
   # @example
   #
   #   response = Response.new(200, {'Foo' => 'Baz', 'John' => 'Doe'})
-  #   response = response.merge_header({'Foo' => 'Bar'})
+  #   response = response.merge_headers({'Foo' => 'Bar'})
   #   response.headers # => {'Foo' => 'Bar', 'John' => 'Doe'}
   #
   # @api public
@@ -139,8 +140,8 @@ class Response
 
   # Return rack compatible array after asserting response is valid
   #
-  # @return [Array]
-  #   rack compatible array
+  # @return [Array(Fixnum, Enumerable(Hash{String => String}), Enumerable<String>)]
+  #   a rack compatible array
   #
   # @raise InvalidError
   #   raises InvalidError when request containts undefined components
@@ -169,7 +170,7 @@ class Response
 
   # Return rack compatible array
   #
-  # @return [Array]
+  # @return [Array(Fixnum, Enumerable(Hash{String => String}), Enumerable<String>)]
   #   rack compatible array
   #
   # @example
@@ -194,10 +195,14 @@ class Response
     headers['Content-Type']
   end
 
-  # Return last modified 
+  # Return last modified
   #
-  # @return [Time]
-  #   if last modified header is present
+  # @raise [ArgumentError]
+  #   if content of Last-Modified header is not a RFC 2616 compliant date
+  #
+  # @return [String]
+  #   if last modified header is present, a string which represents the time
+  #   as rfc1123-date of HTTP-date defined by RFC 2616
   #
   # @return [nil]
   #   otherwise
@@ -234,8 +239,7 @@ class Response
   #   response.headers # => {'Foo' => 'Bar' }
   #   response.body    # => 'Hello'
   #
-  # @return [Array]
-  #   rack compatible array
+  # @return [Response]
   #
   # @api public
   #
@@ -247,10 +251,10 @@ class Response
 
 private
 
-  # Raise error when request containts undefined components
+  # Raise error when request contains undefined components
   #
   # @raise InvalidError
-  #   raises InvalidError when request containts undefined components
+  #   raises InvalidError when request contains undefined components
   #
   # @return [undefined]
   #

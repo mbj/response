@@ -8,11 +8,10 @@ class Response
     # @param [Object] body
     #   rack compatible body
     #
-    # @return [Array]
-    #   rack compatible response array
+    # @return [Response::HTML]
     #
     # @example
-    #   
+    #
     #   # With defaults
     #   response = Response::HTML.build("<html><body>Hello</body></html>")
     #   response.status  # => Response::Status::OK
@@ -23,6 +22,7 @@ class Response
     #   response = Response::HTML.build("<html><body>Hello</body></html>") do |response|
     #     response.with_status(Respnse::Status::NOT_FOUND)
     #   end
+    #
     #   response.status  # => Response::Status::NOT_FOUND
     #   response.headers # => { 'Content-Type' => 'text/html; charset=UTF-8' }
     #   response.body    # => "<html><body>Hello</body></html>"
