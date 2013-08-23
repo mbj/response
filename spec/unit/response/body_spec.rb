@@ -11,7 +11,7 @@ describe Response, '#body' do
   end
 
   context 'when set' do
-    let(:body) { mock('Body') }
+    let(:body) { double('Body') }
 
     let(:object) { described_class.build.with_body(body) }
 

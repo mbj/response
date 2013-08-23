@@ -8,7 +8,7 @@ describe Response, '#cache_control' do
   context 'when Cache-Control header is present' do
     let(:header) { { 'Cache-Control' => value } }
 
-    let(:value) { mock('Value') }
+    let(:value) { double('Value') }
 
     it { should be(value) }
 

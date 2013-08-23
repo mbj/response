@@ -11,7 +11,7 @@ describe Response, '#headers' do
   end
 
   context 'when set' do
-    let(:headers) { mock('Headers') }
+    let(:headers) { double('Headers') }
 
     let(:object) { described_class.build.with_headers(headers) }
 

@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Response::HTML, '.build' do
   subject { object.build(body) }
 
-  let(:body)    { mock('Body')    }
+  let(:body)    { double('Body')    }
   let(:object)  { described_class }
 
   its(:status)  { should be(Response::Status::OK)  }

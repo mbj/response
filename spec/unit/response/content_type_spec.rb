@@ -8,7 +8,7 @@ describe Response, '#content_type' do
   context 'when Content-Type header is present' do
     let(:header) { { 'Content-Type' => value } }
 
-    let(:value) { mock('Value') }
+    let(:value) { double('Value') }
 
     it { should be(value) }
 

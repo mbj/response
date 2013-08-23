@@ -11,7 +11,7 @@ describe Response, '#status' do
   end
 
   context 'when set' do
-    let(:status) { mock('Status') }
+    let(:status) { double('Status') }
 
     let(:object) { described_class.build.with_status(status) }
 

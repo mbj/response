@@ -4,8 +4,8 @@ describe Response, '#rack_array' do
   subject { object.rack_array }
 
   let(:status)  { Response::Status::OK  }
-  let(:headers) { mock('Headers') }
-  let(:body)    { mock('Body')    }
+  let(:headers) { double('Headers') }
+  let(:body)    { double('Body')    }
 
   let(:object) { described_class.build(status, headers, body) }
 

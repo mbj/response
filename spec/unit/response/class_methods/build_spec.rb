@@ -16,7 +16,7 @@ describe Response, '.build' do
 
   context 'with block' do
     let(:yields) { [] }
-    let(:value) { mock('Value') }
+    let(:value) { double('Value') }
     let(:block) { lambda { |response| yields << response; value } }
 
     it 'should return value from block' do

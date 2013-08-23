@@ -5,10 +5,10 @@ describe Response, '#with_status' do
 
   let(:object)  { described_class.build }
   let(:status)  { Response::Status::OK  }
-                                       
-  let(:body)    { mock('Body')          }
-  let(:headers) { mock('Headers')       }
-                                       
+
+  let(:body)    { double('Body')          }
+  let(:headers) { double('Headers')       }
+
   its(:status)  { should be(status)     }
   its(:body)    { should be(body)       }
   its(:headers) { should be(headers)    }

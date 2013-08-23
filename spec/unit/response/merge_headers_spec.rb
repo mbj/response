@@ -8,8 +8,8 @@ describe Response, '#merge_headers' do
   let(:update_headers)   { { 'Baz' => 'Zot' }   }
   let(:original_headers) { { 'Foo' => 'Bar' }   }
 
-  let(:status)  { mock('Status')    }
-  let(:body)    { mock('Body')      }
+  let(:status)  { double('Status')    }
+  let(:body)    { double('Body')      }
 
   its(:status)  { should be(status) }
   its(:body)    { should be(body)   }
