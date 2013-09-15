@@ -262,7 +262,7 @@ private
   #
   def assert_valid
     unless valid?
-      raise InvalidError, "Not a valid response: #{self.inspect}"
+      raise InvalidError, "Not a valid response: #{inspect}"
     end
   end
 end
