@@ -120,7 +120,7 @@ class Response
 
   # Return response with merged headers
   #
-  # @param [Hash] headers
+  # @param [Hash] new_headers
   #   the headers to merge
   #
   # @example
@@ -134,8 +134,8 @@ class Response
   # @return [Response]
   #   returns new response with merged header
   #
-  def merge_headers(headers)
-    self.class.new(status, self.headers.merge(headers), body)
+  def merge_headers(new_headers)
+    self.class.new(status, headers.merge(new_headers), body)
   end
 
   # Return rack compatible array after asserting response is valid

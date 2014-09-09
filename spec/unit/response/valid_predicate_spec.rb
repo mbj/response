@@ -27,6 +27,14 @@ describe Response, '#valid?' do
     it_should_behave_like 'an idempotent method'
   end
 
+  context 'without headers' do
+    let(:object) { described_class.build(Response::Status::OK, Response::Undefined, double('Body')) }
+
+    it { should be(false) }
+
+    it_should_behave_like 'an idempotent method'
+  end
+
   context 'without status and body' do
     let(:object) { described_class.build }
 
