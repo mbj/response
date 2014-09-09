@@ -35,7 +35,14 @@ class Response
     # @api public
     #
     def self.build(location)
-      super(self::STATUS, {'Location' => location, 'Content-Type' => TEXT_PLAIN}, "You are beeing redirected to: #{location}")
+      super(
+        self::STATUS,
+        {
+          'Location'      => location,
+          'Content-Type' => TEXT_PLAIN
+        },
+        "You are beeing redirected to: #{location}"
+      )
     end
 
     # Response with default status code of 302

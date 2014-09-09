@@ -1,4 +1,4 @@
-#encoding: utf-8
+# encoding: utf-8
 
 require 'time'
 require 'ice_nine'
@@ -261,9 +261,7 @@ private
   # @api private
   #
   def assert_valid
-    unless valid?
-      raise InvalidError, "Not a valid response: #{inspect}"
-    end
+    raise InvalidError, "Not a valid response: #{inspect}" unless valid?
   end
 end
 

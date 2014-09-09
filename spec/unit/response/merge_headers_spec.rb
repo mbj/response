@@ -17,4 +17,3 @@ describe Response, '#merge_headers' do
 
   it_should_behave_like 'a functional command method'
 end
-

@@ -17,7 +17,13 @@ describe Response, '.build' do
   context 'with block' do
     let(:yields) { [] }
     let(:value) { double('Value') }
-    let(:block) { lambda { |response| yields << response; value } }
+
+    let(:block) do
+      lambda do |response|
+        yields << response
+        value
+      end
+    end
 
     it 'should return value from block' do
       should be(value)

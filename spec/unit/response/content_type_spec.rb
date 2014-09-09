@@ -23,4 +23,3 @@ describe Response, '#content_type' do
     it_should_behave_like 'an idempotent method'
   end
 end
-
