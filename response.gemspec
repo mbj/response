@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |gem|
   gem.name        = 'response'
-  gem.version     = '0.0.4'
+  gem.version     = '0.0.5'
   gem.authors     = [ 'Markus Schirp' ]
   gem.email       = [ 'mbj@schir-dso.com' ]
   gem.description = 'Build rack responses with functional style'
