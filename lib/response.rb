@@ -261,7 +261,7 @@ private
   # @api private
   #
   def assert_valid
-    raise InvalidError, "Not a valid response: #{inspect}" unless valid?
+    fail InvalidError, "Not a valid response: #{inspect}" unless valid?
   end
 end
 

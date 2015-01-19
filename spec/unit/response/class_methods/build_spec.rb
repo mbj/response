@@ -31,7 +31,7 @@ describe Response, '.build' do
 
     it 'should call block with response' do
       subject
-      yields.should eql([Response.build])
+      expect(yields).to eql([Response.build])
     end
   end
 end
