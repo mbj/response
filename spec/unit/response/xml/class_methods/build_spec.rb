@@ -11,8 +11,10 @@ describe Response::XML, '.build' do
   its(:headers) { should eql('Content-Type' => 'application/xml; charset=UTF-8') }
 
   it 'allows to modify response' do
-    object.build(body) do |response|
+    res = object.build(body) do |response|
       response.with_status(404)
-    end.status.should be(404)
+    end
+
+    expect(res.status).to be(404)
   end
 end

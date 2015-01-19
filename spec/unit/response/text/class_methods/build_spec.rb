@@ -11,8 +11,10 @@ describe Response::Text, '.build' do
   its(:headers) { should eql('Content-Type' => 'text/plain; charset=UTF-8') }
 
   it 'allows to modify response' do
-    object.build(body) do |response|
+    res = object.build(body) do |response|
       response.with_status(Response::Status::NOT_FOUND)
-    end.status.should be(Response::Status::NOT_FOUND)
+    end
+
+    expect(res.status).to be(Response::Status::NOT_FOUND)
   end
 end
